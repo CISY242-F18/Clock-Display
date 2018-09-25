@@ -5,12 +5,18 @@
  * range of the clock is 00:00 (midnight) to 23:59 (one minute before 
  * midnight).
  * 
+ * Internally storing numbers with 0-23 and displaying 1-12 with
+ * AM/PM indicator.
+ * 
+ * clock uses a 24 hour internal representation but display the string
+ * as a 12 hour clock
+ * 
  * The clock display receives "ticks" (via the timeTick method) every minute
  * and reacts by incrementing the display. This is done in the usual clock
  * fashion: the hour increments when the minutes roll over to zero.
  * 
- * @author Michael Kölling and David J. Barnes
- * @version 2011.07.31
+ * @author Nicolas M
+ * @version 2018.09.24
  */
 public class ClockDisplay
 {
