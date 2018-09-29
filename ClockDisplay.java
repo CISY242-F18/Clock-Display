@@ -30,7 +30,7 @@ public class ClockDisplay
     public ClockDisplay()
     {
         
-        hours = new NumberDisplay(12);
+        hours = new NumberDisplay(13);
         minutes = new NumberDisplay(60);
         updateDisplay();
     }
@@ -55,8 +55,10 @@ public class ClockDisplay
     public void timeTick()
     {
         minutes.increment();
-        if(minutes.getValue() == 0) {  // it just rolled over!
+        if(minutes.getValue() == 0 ) 
+        {  // it just rolled over!
         hours.increment();
+     
        
         }
         updateDisplay();
@@ -81,23 +83,22 @@ public class ClockDisplay
         return displayString;
     }
     
-    /**
-     * Update the internal string that represents the display.
-     */
     private void updateDisplay()
     {
         displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue();
     }
     
+    
     /**
-     * Set the new specified time, 12 hour clock 
+     * Set the new specified time, 12 hour clock & display
      * /Online references.
      */
-    public static void main ( String args[])
+    public String ClockDisplay()
     {
      ClockDisplay cd= new ClockDisplay();
-     cd.setTime(12 ,25);      
+     cd.setTime(13 ,30);      
      cd.updateDisplay();
+     return displayString;
     }
 }
