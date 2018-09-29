@@ -14,6 +14,8 @@
  * 
  * @author Nicolas M.
  * @version 2018.09.24
+ * Exercise 3.38
+ * Code examples from pages 101-113
  */
 public class ClockDisplay
 {
@@ -27,7 +29,8 @@ public class ClockDisplay
      */
     public ClockDisplay()
     {
-        hours = new NumberDisplay(24);
+        
+        hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
         updateDisplay();
     }
@@ -39,7 +42,8 @@ public class ClockDisplay
      */
     public ClockDisplay(int hour, int minute)
     {
-        hours = new NumberDisplay(24);
+        
+        hours = new NumberDisplay(13);
         minutes = new NumberDisplay(60);
         setTime(hour, minute);
     }
@@ -52,7 +56,8 @@ public class ClockDisplay
     {
         minutes.increment();
         if(minutes.getValue() == 0) {  // it just rolled over!
-            hours.increment();
+        hours.increment();
+       
         }
         updateDisplay();
     }
@@ -83,5 +88,16 @@ public class ClockDisplay
     {
         displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue();
+    }
+    
+    /**
+     * Set the new specified time, 12 hour clock 
+     * /Online references.
+     */
+    public static void main ( String args[])
+    {
+     ClockDisplay cd= new ClockDisplay();
+     cd.setTime(12 ,25);      
+     cd.updateDisplay();
     }
 }

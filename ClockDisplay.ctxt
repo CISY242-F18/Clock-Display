@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ClockDisplay
-comment0.text=\r\n\ The\ ClockDisplay\ class\ implements\ a\ digital\ clock\ display\ for\ a\r\n\ 12\ hour\ clock.\ The\ clock\ shows\ hours\ and\ minutes.\ The\ \r\n\ range\ of\ the\ clock\ is\ 12\:00am\ (midnight)\ to\ 11\:59pm\ (one\ minute\ before\ \r\n\ midnight).\r\n\ \r\n\ The\ clock\ display\ receives\ "ticks"\ (via\ the\ timeTick\ method)\ every\ minute\r\n\ and\ reacts\ by\ incrementing\ the\ display.\ This\ is\ done\ in\ the\ usual\ clock\r\n\ fashion\:\ the\ hour\ increments\ when\ the\ minutes\ roll\ over\ to\ zero.\r\n\ \r\n\ The\ clock\ maintains\ data\ internally\ from\ 0-23\ but\ displays\ a\ 12\ hour\ face\r\n\ with\ an\ AM/PM\ indicator.\ \r\n\ \r\n\ @author\ Nicolas\ M.\r\n\ @version\ 2018.09.24\r\n
+comment0.text=\r\n\ The\ ClockDisplay\ class\ implements\ a\ digital\ clock\ display\ for\ a\r\n\ 12\ hour\ clock.\ The\ clock\ shows\ hours\ and\ minutes.\ The\ \r\n\ range\ of\ the\ clock\ is\ 12\:00am\ (midnight)\ to\ 11\:59pm\ (one\ minute\ before\ \r\n\ midnight).\r\n\ \r\n\ The\ clock\ display\ receives\ "ticks"\ (via\ the\ timeTick\ method)\ every\ minute\r\n\ and\ reacts\ by\ incrementing\ the\ display.\ This\ is\ done\ in\ the\ usual\ clock\r\n\ fashion\:\ the\ hour\ increments\ when\ the\ minutes\ roll\ over\ to\ zero.\r\n\ \r\n\ The\ clock\ maintains\ data\ internally\ from\ 0-23\ but\ displays\ a\ 12\ hour\ face\r\n\ with\ an\ AM/PM\ indicator.\ \r\n\ \r\n\ @author\ Nicolas\ M.\r\n\ @version\ 2018.09.24\r\n\ Exercise\ 3.38\r\n\ Code\ examples\ from\ pages\ 101-113\r\n
 comment1.params=
 comment1.target=ClockDisplay()
 comment1.text=\r\n\ Constructor\ for\ ClockDisplay\ objects.\ This\ constructor\ \r\n\ creates\ a\ new\ clock\ set\ at\ 00\:00.\r\n
@@ -19,4 +19,7 @@ comment5.text=\r\n\ Return\ the\ current\ time\ of\ this\ display\ in\ the\ form
 comment6.params=
 comment6.target=void\ updateDisplay()
 comment6.text=\r\n\ Update\ the\ internal\ string\ that\ represents\ the\ display.\r\n
-numComments=7
+comment7.params=args
+comment7.target=void\ main(java.lang.String[])
+comment7.text=\r\n\ Set\ the\ new\ specified\ time,\ 12\ hour\ clock\ \r\n\ /Online\ references.\r\n
+numComments=8
