@@ -17,12 +17,14 @@
  * 
  * @author Nicolas M
  * @version 2018.09.24
+ * Exercise 3.39
  */
 public class ClockDisplay
 {
     private NumberDisplay hours;
-    private NumberDisplay minutes;
+    private NumberDisplay minutes;  
     private String displayString;    // simulates the actual display
+  
     
     /**
      * Constructor for ClockDisplay objects. This constructor 
@@ -40,10 +42,11 @@ public class ClockDisplay
      * creates a new clock set at the time specified by the 
      * parameters.
      */
-    public ClockDisplay(int hour, int minute)
+    public ClockDisplay(int hour, int minute, String show)
     {
         hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
+        show = show;
         setTime(hour, minute);
     }
 
@@ -58,6 +61,7 @@ public class ClockDisplay
             hours.increment();
         }
         updateDisplay();
+        
     }
 
     /**
@@ -67,7 +71,7 @@ public class ClockDisplay
     public void setTime(int hour, int minute)
     {
         hours.setValue(hour);
-        minutes.setValue(minute);
+        minutes.setValue(minute);        
         updateDisplay();
     }
 
@@ -82,9 +86,31 @@ public class ClockDisplay
     /**
      * Update the internal string that represents the display.
      */
-    private void updateDisplay()
+    private  void updateDisplay()
     {
-        displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+        String hoursString="";
+        String showString="";
+        
+        if(hours.getValue()>=12)
+        {
+        if( (hours.getValue()-12)>= 0 && 
+            (hours.getValue()-12)<=9)
+            hoursString= "0" + (hours.getValue()-12);
+        
+        else
+        
+         hoursString= "" + (hours.getValue()-12); 
+         showString= "pm";
+        }
+        
+        else
+        {
+         hoursString= "" + hours.getDisplayValue(); 
+         showString= "am";
+        }
+        
+        displayString = hoursString + ":"+
+        minutes.getDisplayValue()+
+        showString;
     }
 }
