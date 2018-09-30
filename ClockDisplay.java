@@ -32,6 +32,7 @@ public class ClockDisplay
         
         hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
+        
         updateDisplay();
     }
 
@@ -40,14 +41,21 @@ public class ClockDisplay
      * creates a new clock set at the time specified by the 
      * parameters.
      */
-    public ClockDisplay(int hour, int minute)
+    public ClockDisplay(int hour, int minute )
     {
         
         hours = new NumberDisplay(13);
         minutes = new NumberDisplay(60);
+        
         setTime(hour, minute);
+        
     }
-
+    
+    public String get12HourInternalDisplay()
+    {
+        return displayString;
+    }
+    
     /**
      * This method should get called once every minute - it makes
      * the clock display go one minute forward.
@@ -57,8 +65,12 @@ public class ClockDisplay
         minutes.increment();
         if(minutes.getValue() == 0) {  // it just rolled over!
         hours.increment();
-       
-        }
+        if( hours.getValue() == 12)
+        toString();
+        
+        
+    }
+          
         updateDisplay();
     }
 
@@ -72,32 +84,48 @@ public class ClockDisplay
         minutes.setValue(minute);
         updateDisplay();
     }
-
-    /**
-     * Return the current time of this display in the format HH:MM.
-     */
-    public String get12HourInternalDisplay()
-    {
-        return displayString;
-    }
     
-    /**
-     * Update the internal string that represents the display.
-     */
-    private void updateDisplay()
-    {
-        displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
-    }
+    public String getTime()
+     {
+         return displayString;
+     }
+     
+     
+     
+    
     
     /**
      * Set the new specified time, 12 hour clock 
      * /Online references.
      */
-    public static void main ( String args[])
+    private void updateDisplay()
     {
-     ClockDisplay cd= new ClockDisplay();
-     cd.setTime(12 ,25);      
-     cd.updateDisplay();
+     String hoursString="";
+        String showString="";
+        
+        if(hours.getValue()>=12)
+        {
+        if( (hours.getValue()-12)>= 0 && 
+            (hours.getValue()-12)<=9 )
+            
+            hoursString= "0" + (hours.getValue()-12);
+                
+        else
+        
+         hoursString= "" + (hours.getValue()-12); 
+         showString= "pm";
+        }
+        
+        else
+        {
+         hoursString= "" + hours.getDisplayValue(); 
+         showString= "am";         
+        }
+        
+        displayString = hoursString + ":"+
+        minutes.getDisplayValue()+
+        showString;
     }
+    
+    
 }
