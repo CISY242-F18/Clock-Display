@@ -30,7 +30,7 @@ public class ClockDisplay
     public ClockDisplay()
     {
         
-        hours = new NumberDisplay(12);
+        hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
         
         updateDisplay();
@@ -44,7 +44,7 @@ public class ClockDisplay
     public ClockDisplay(int hour, int minute )
     {
         
-        hours = new NumberDisplay(13);
+        hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
         
         setTime(hour, minute);
@@ -65,10 +65,7 @@ public class ClockDisplay
         minutes.increment();
         if(minutes.getValue() == 0) {  // it just rolled over!
         hours.increment();
-        if( hours.getValue() == 12)
-        toString();
-        
-        
+                        
     }
           
         updateDisplay();
@@ -100,32 +97,22 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-     String hoursString="";
-        String showString="";
-        
-        if(hours.getValue()>=12)
-        {
-        if( (hours.getValue()-12)>= 0 && 
-            (hours.getValue()-12)<=9 )
-            
-            hoursString= "0" + (hours.getValue()-12);
-                
-        else
-        
-         hoursString= "" + (hours.getValue()-12); 
-         showString= "pm";
+     int hour = hours.getValue();
+     String prefix;
+     
+     if(hour >=12) {
+         prefix = "pm";
         }
-        
-        else
-        {
-         hoursString= "" + hours.getDisplayValue(); 
-         showString= "am";         
+     else {
+         prefix = "am";
         }
-        
-        displayString = hoursString + ":"+
-        minutes.getDisplayValue()+
-        showString;
+     if (hour >=12){
+         hour -=12;
+         }
+     if(hour == 0) {
+       hour = 12;
+       }
+     displayString = hour + ": "+
+        minutes.getDisplayValue()+ prefix;
     }
-    
-    
 }
